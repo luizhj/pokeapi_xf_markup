@@ -1,4 +1,6 @@
-﻿using Xamarin.Forms;
+﻿using pokeapi_xf_markup.Services;
+using pokeapi_xf_markup.Views;
+using Xamarin.Forms;
 
 namespace pokeapi_xf_markup
 {
@@ -8,8 +10,12 @@ namespace pokeapi_xf_markup
         {
             InitializeComponent();
 
+
+            DependencyService.Register<PokeDao>();
+
             Device.SetFlags(new string[] { "Markup_Experimental" });
-            MainPage = new MainPage();
+
+            MainPage = new NavigationPage(new PokemonListPage() );
         }
     }
 }
